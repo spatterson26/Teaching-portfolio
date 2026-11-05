@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shanica Patterson Teaching Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: floating pill nav; each portfolio item is its own page (hash routed); colour-block panels, polaroid artifacts, player-style podcast */
+:root {
+  --bg: #f4f2fb;
+  --surface: #ffffff;
+  --fg: #16142b;
+  --muted: #5d5a75;
+  --line: #e2dff0;
+  --deep: #0f3b34;
+  --deep-fg: #f2fbf7;
+  --sun: #ffc93c;
+  --coral: #ff7a59;
+  --mint: #b9ecd6;
+  --lilac: #d9d0ff;
+  --sky: #cde9ff;
+  --ink: #16142b;
+  --shadow: 0 18px 40px -22px rgba(22, 20, 43, .35);
+  --serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --sans: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #100f1c; --surface: #1b1a2c; --fg: #f1effa; --muted: #a9a5c4; --line: #2d2b44;
+  --deep: #0c2f2a; --deep-fg: #eefaf5; --mint: #1f4a3e; --lilac: #2e2752; --sky: #1c3348;
+  --shadow: 0 18px 40px -22px rgba(0, 0, 0, .7); color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #100f1c; --surface: #1b1a2c; --fg: #f1effa; --muted: #a9a5c4; --line: #2d2b44;
+  --deep: #0c2f2a; --deep-fg: #eefaf5; --mint: #1f4a3e; --lilac: #2e2752; --sky: #1c3348;
+  --shadow: 0 18px 40px -22px rgba(0, 0, 0, .7); color-scheme: dark }
+
+* { box-sizing: border-box }
+body { background: var(--bg); color: var(--fg); font-family: var(--sans); font-size: 16px; line-height: 1.6; overflow-x: hidden }
+.wrap { max-width: 1120px; margin: 0 auto; padding-inline: 16px }
+h1, h2, h3 { margin: 0; text-wrap: balance; line-height: 1.05 }
+h1 { font-size: clamp(2.6rem, 8vw, 5rem); font-weight: 800; letter-spacing: -.045em }
+h2 { font-size: clamp(1.8rem, 4.5vw, 2.6rem); font-weight: 800; letter-spacing: -.03em }
+h1 em, h2 em { font-family: var(--serif); font-weight: 400; font-style: italic; letter-spacing: -.01em }
+h3 { font-size: 1.15rem; font-weight: 700; letter-spacing: -.01em }
+p { margin: 0 }
+a { color: inherit }
+:focus-visible { outline: 3px solid var(--coral); outline-offset: 3px; border-radius: 8px }
+.eyebrow { font-size: .78rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted) }
+.hint { color: var(--muted); font-style: italic }
+.add { display: inline-flex; align-items: center; font-size: .74rem; font-weight: 700; background: var(--sun); color: var(--ink); padding: 3px 10px; border-radius: 999px; font-style: normal; letter-spacing: .01em; vertical-align: middle }
+.prose { display: grid; gap: 16px; max-width: 66ch; font-size: 1.05rem }
+
+/* Nav */
+nav { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 12px); z-index: 20; margin-top: 12px }
+.navbar { display: flex; align-items: center; gap: 8px; background: color-mix(in srgb, var(--surface) 85%, transparent); backdrop-filter: blur(14px);
+  border: 1px solid var(--line); border-radius: 999px; padding: 6px 6px 6px 18px; box-shadow: var(--shadow) }
+.logo { font-family: var(--serif); font-style: italic; font-size: 1.35rem; text-decoration: none; white-space: nowrap }
+.links { display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; min-width: 0; margin-left: auto }
+.links::-webkit-scrollbar { display: none }
+.links a { font-size: .85rem; font-weight: 600; color: var(--muted); text-decoration: none; padding: 8px 12px; border-radius: 999px; white-space: nowrap; transition: background .2s, color .2s }
+.links a:hover { background: var(--line); color: var(--fg) }
+.links a[aria-current="page"] { background: var(--fg); color: var(--bg) }
+
+/* Pages: only one shows at a time. Works without the script via :target; the script also manages it. */
+.page { padding-block: 28px 72px; display: none; gap: 40px; scroll-margin-top: 120px }
+.page:target, main:not(:has(.page:target)) #home, .page.is-current { display: grid }
+main.js .page:not(.is-current) { display: none !important } main.js .page.is-current { display: grid }
+.page-head { display: grid; gap: 12px; max-width: 720px; padding-top: 24px }
+.page-head p { color: var(--muted); font-size: 1.1rem }
+
+/* Home hero */
+/* Chalkboard hero with a wooden frame and chalk ledge */
+.hero { background:
+  radial-gradient(ellipse at 20% 30%, rgba(255,255,255,.07), transparent 55%),
+  radial-gradient(ellipse at 80% 70%, rgba(255,255,255,.05), transparent 50%), #24453b;
+  color: #f3f1e8; border-radius: 22px; padding: clamp(28px, 6vw, 64px) clamp(28px, 6vw, 64px) clamp(44px, 7vw, 76px);
+  display: grid; grid-template-columns: 1.3fr .9fr; gap: 40px; align-items: center; position: relative; overflow: hidden;
+  border: 14px solid #8a5a34; box-shadow: inset 0 0 0 2px rgba(0,0,0,.25), var(--shadow) }
+.hero::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .5;
+  background: repeating-linear-gradient(115deg, transparent 0 40px, rgba(255,255,255,.025) 40px 120px) }
+.hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 18px; background: #6e4527; pointer-events: none;
+  box-shadow: inset 0 3px 0 rgba(255,255,255,.12) }
+.chalk { position: absolute; bottom: 18px; height: 8px; border-radius: 3px; z-index: 1 }
+.chalk.c1 { left: 12%; width: 46px; background: #fbfaf2 } .chalk.c2 { left: 19%; width: 32px; background: #ffd36b }
+.chalk.c3 { right: 14%; width: 40px; background: #ffb3a1 }
+.hero > * { position: relative; min-width: 0 }
+.hello { display: inline-flex; gap: 8px; align-items: center; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18); padding: 6px 14px; border-radius: 999px; font-size: .85rem; font-weight: 600 }
+.dot { width: 8px; height: 8px; background: var(--sun); border-radius: 50% }
+.hero h1 { font-size: clamp(3rem, 9vw, 6.2rem); letter-spacing: -.05em; margin-top: 22px }
+.hero h1 em { color: var(--sun) }
+.squiggle { display: block; width: min(260px, 70%); height: auto; margin-top: 4px }
+.hero .lede { font-size: 1.12rem; opacity: .88; margin-top: 18px; max-width: 42ch }
+.cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px }
+.btn { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: .95rem; text-decoration: none; padding: 13px 22px; border-radius: 999px; transition: transform .2s; border: 0; cursor: pointer; font-family: inherit }
+.btn:hover { transform: translateY(-2px) }
+.btn.primary { background: var(--sun); color: var(--ink) }
+.btn.ghost { color: var(--deep-fg); border: 1.5px solid rgba(255,255,255,.35); background: transparent }
+.btn.dark { background: var(--fg); color: var(--bg) }
+.btn.line { border: 1.5px solid var(--line); background: var(--surface); color: var(--fg) }
+.portrait { position: relative; justify-self: center; width: 100%; max-width: 330px }
+.arch { aspect-ratio: 3/4; max-width: 100%; border-radius: 999px 999px 28px 28px; background: linear-gradient(160deg, var(--coral), var(--sun));
+  display: grid; place-items: center; color: var(--ink); font-weight: 700; text-align: center; padding: 20px; overflow: hidden }
+.arch img { width: 100%; height: 100%; object-fit: cover }
+.sticker { position: absolute; background: var(--surface); color: var(--fg); font-weight: 700; font-size: .82rem; padding: 10px 14px; border-radius: 14px; box-shadow: var(--shadow); white-space: nowrap }
+.s1 { left: -14px; bottom: 34px; transform: rotate(-6deg) }
+.s2 { right: -8px; top: 30px; transform: rotate(5deg); background: var(--lilac) }
+@media (max-width: 820px) { .hero { grid-template-columns: 1fr } .portrait { max-width: 260px } .s1 { left: 0 } .s2 { right: 0 } }
+
+.ribbon { overflow: hidden; background: var(--coral); color: var(--ink); transform: rotate(-1.2deg); padding-block: 14px; margin-inline: -16px }
+.track { display: flex; gap: 36px; width: max-content; animation: slide 34s linear infinite; font-family: var(--serif); font-style: italic; font-size: 1.6rem; white-space: nowrap }
+.track span::after { content: "✦"; font-style: normal; font-size: 1rem; margin-left: 36px; vertical-align: middle }
+@keyframes slide { to { transform: translateX(-50%) } }
+
+/* Home directory cards */
+.dir { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 24px; padding: 22px; display: flex; flex-direction: column; gap: 10px;
+  text-decoration: none; transition: transform .25s, box-shadow .25s; min-width: 0 }
+.card:hover { transform: translateY(-4px); box-shadow: var(--shadow) }
+.card .ico { width: 44px; height: 44px; border-radius: 14px; display: grid; place-items: center; font-size: 1.3rem }
+.card p { color: var(--muted); font-size: .92rem }
+.card .go { margin-top: auto; font-weight: 700; font-size: .85rem }
+.c-mint .ico { background: var(--mint) } .c-lilac .ico { background: var(--lilac) } .c-sun .ico { background: color-mix(in srgb, var(--sun) 55%, var(--surface)) } .c-sky .ico { background: var(--sky) }
+@media (max-width: 900px) { .dir { grid-template-columns: repeat(2, 1fr) } }
+@media (max-width: 480px) { .dir { grid-template-columns: 1fr } }
+
+/* About me */
+.about { display: grid; grid-template-columns: 300px 1fr; gap: 48px; align-items: start }
+.about .arch { max-width: 300px }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-top: 8px }
+.fact { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 16px 18px; display: grid; gap: 2px; min-width: 0 }
+.fact b { font-size: 1.05rem }
+@media (max-width: 780px) { .about { grid-template-columns: 1fr } .about .arch { max-width: 240px } }
+
+/* Philosophy */
+.philo { background: var(--surface); border-radius: 36px; padding: clamp(28px, 6vw, 64px); border: 1px solid var(--line); display: grid; gap: 20px }
+.bigquote { font-family: var(--serif); font-size: clamp(1.9rem, 4.6vw, 3.2rem); line-height: 1.12; max-width: 24ch }
+.bigquote .mark { color: var(--coral) }
+.beliefs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px }
+.belief:nth-child(4) { background: var(--sky) }
+.theory { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--line) }
+.theory div { padding: 16px 18px 4px 0; display: grid; gap: 4px; align-content: start; min-width: 0 }
+.theory b { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 1.35rem; line-height: 1.1 }
+.theory p { color: var(--muted); font-size: .9rem }
+@media (max-width: 900px) { .beliefs, .theory { grid-template-columns: 1fr 1fr } }
+.belief { border-radius: 22px; padding: 22px; display: grid; gap: 8px; align-content: start; min-width: 0 }
+.belief:nth-child(1) { background: var(--mint) } .belief:nth-child(2) { background: var(--lilac) } .belief:nth-child(3) { background: color-mix(in srgb, var(--sun) 40%, var(--surface)) }
+.belief .ico { font-size: 1.6rem }
+.belief p { color: var(--muted); font-size: .95rem }
+@media (max-width: 760px) { .beliefs { grid-template-columns: 1fr } }
+
+/* Reflections */
+.model { display: flex; flex-wrap: wrap; gap: 8px }
+.model span { font-size: .82rem; font-weight: 600; padding: 6px 12px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line) }
+.timeline { display: grid; gap: 16px; max-width: 820px }
+/* Reflections as lined notebook paper with a red margin */
+.entry { display: grid; grid-template-columns: 140px 1fr; gap: 22px; border: 1px solid var(--line); border-radius: 6px; padding: 22px 24px 26px 64px; position: relative; line-height: 32px;
+  background: linear-gradient(90deg, transparent 46px, color-mix(in srgb, var(--coral) 70%, transparent) 46px 48px, transparent 48px),
+  repeating-linear-gradient(to bottom, var(--surface) 0 31px, color-mix(in srgb, var(--sky) 80%, var(--line)) 31px 32px); box-shadow: var(--shadow) }
+.entry::before { content: ""; position: absolute; left: 16px; top: 26px; width: 14px; height: 14px; border-radius: 50%; background: var(--bg); box-shadow: 0 64px 0 var(--bg), 0 128px 0 var(--bg) }
+.entry h3 { line-height: 32px }
+.entry .when { font-family: var(--serif); font-style: italic; font-size: 1.4rem; color: var(--coral); line-height: 1.1 }
+.entry > div { min-width: 0; display: grid; gap: 8px }
+@media (max-width: 560px) { .entry { grid-template-columns: 1fr; gap: 0; padding-left: 58px } }
+
+/* LMS */
+.lms { display: grid; grid-template-columns: 1fr 1fr; gap: 24px }
+.tool { background: var(--surface); border: 1px solid var(--line); border-radius: 30px; overflow: hidden; display: grid; align-content: start; min-width: 0 }
+.tool-top { padding: 26px 26px 0; display: grid; gap: 10px }
+.badge { display: inline-flex; gap: 8px; align-items: center; font-weight: 700; font-size: .85rem }
+.badge i { width: 28px; height: 28px; border-radius: 9px; display: grid; place-items: center; font-style: normal; color: #fff; font-size: .85rem }
+.gc i { background: #1e8e3e } .qz i { background: #8854c0 }
+.window { margin: 22px 26px; border-radius: 16px; border: 1px solid var(--line); overflow: hidden; background: var(--bg) }
+.window .bar { display: flex; gap: 6px; padding: 10px 12px; border-bottom: 1px solid var(--line); background: var(--surface) }
+.window .bar span { width: 10px; height: 10px; border-radius: 50%; background: var(--line) }
+.window .shot { aspect-ratio: 16/10; max-width: 100%; display: grid; place-items: center; color: var(--muted); font-weight: 600; font-size: .9rem; text-align: center; padding: 16px }
+.window .shot img { width: 100%; height: 100%; object-fit: cover }
+.window img.full { display: block; width: 100%; height: auto; background: #fff }
+.uses { padding: 0 26px 26px; display: grid; gap: 10px }
+.uses li { color: var(--muted) }
+.uses ul { margin: 0; padding-left: 20px; display: grid; gap: 6px }
+.join { display: grid; gap: 12px; justify-items: start; margin-top: 8px; padding: 18px; border-radius: 20px; background: var(--mint) }
+.join p { font-size: .92rem }
+.coderow { display: flex; flex-wrap: wrap; gap: 10px; align-items: center }
+.coderow code { font: 800 1.5rem/1 ui-monospace, "SF Mono", Menlo, Consolas, monospace; letter-spacing: .12em; background: var(--surface); padding: 12px 16px; border-radius: 12px; user-select: all }
+.coderow .btn { padding: 10px 16px }
+@media (max-width: 820px) { .lms { grid-template-columns: 1fr } }
+
+/* Podcast */
+.pod { background: #16142b; color: #f1effa; border-radius: 36px; padding: clamp(24px, 5vw, 52px); display: grid; grid-template-columns: 260px 1fr; gap: 40px; align-items: center; position: relative; overflow: hidden }
+.pod::after { content: ""; position: absolute; width: 400px; height: 400px; left: -150px; bottom: -220px; border-radius: 50%; background: radial-gradient(circle, rgba(255,122,89,.45), transparent 65%); pointer-events: none }
+.pod > * { position: relative; min-width: 0 }
+.cover { aspect-ratio: 1; max-width: 100%; border-radius: 26px; background: linear-gradient(140deg, #ff7a59, #b8a8ff 60%, #7cc6ff); padding: 22px; display: flex; flex-direction: column; justify-content: space-between; color: #16142b; box-shadow: 0 24px 50px -20px rgba(0,0,0,.6) }
+.cover b { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 2.3rem; line-height: 1 }
+.cover span { font-size: .75rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase }
+.pod h2 { color: #fff }
+.pod .sub { color: #c4c0de; margin-top: 10px }
+.wave { display: flex; align-items: center; gap: 3px; height: 54px; margin-block: 26px 10px }
+.wave i { flex: 1; background: rgba(255,255,255,.28); border-radius: 3px; min-width: 2px }
+.wave i.on { background: #ffc93c }
+.eps { display: grid; gap: 8px }
+.ep { display: grid; grid-template-columns: 42px 1fr auto; gap: 14px; align-items: center; padding: 10px 14px 10px 10px; border-radius: 16px; background: rgba(255,255,255,.06) }
+.ep .play { width: 42px; height: 42px; border-radius: 50%; background: #ffc93c; color: #16142b; display: grid; place-items: center; font-size: .8rem }
+.ep > div { min-width: 0 }
+.ep small { color: #a9a5c4 }
+.ep .len { font-size: .8rem; color: #a9a5c4 }
+.ep audio { grid-column: 1 / -1; width: 100% }
+@media (max-width: 760px) { .pod { grid-template-columns: 1fr } .cover { max-width: 220px } }
+
+/* Artifacts */
+.filters { display: flex; flex-wrap: wrap; gap: 8px }
+.filters button { font: inherit; font-size: .88rem; font-weight: 600; padding: 8px 16px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--surface); color: var(--muted); cursor: pointer }
+.filters button[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg) }
+/* Artifacts pinned to a classroom display board */
+.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding: clamp(24px, 4vw, 40px); border-radius: 20px;
+  background: radial-gradient(rgba(0,0,0,.08) 1px, transparent 1.5px) 0 0 / 7px 7px, #c79a6b; border: 12px solid #8a5a34 }
+.polaroid { margin: 0; background: var(--surface); padding: 14px 14px 20px; border-radius: 4px; box-shadow: 0 10px 22px -12px rgba(0,0,0,.55); display: grid; gap: 12px; transition: transform .3s; min-width: 0; position: relative }
+.polaroid::before { content: ""; position: absolute; top: -7px; left: 50%; width: 16px; height: 16px; margin-left: -8px; border-radius: 50%; background: var(--coral); box-shadow: inset -2px -2px 0 rgba(0,0,0,.25), 0 3px 4px rgba(0,0,0,.3) }
+.polaroid:nth-child(3n+2)::before { background: #5b8def } .polaroid:nth-child(3n)::before { background: var(--sun) }
+.polaroid:nth-child(3n+1) { transform: rotate(-1.6deg) } .polaroid:nth-child(3n+2) { transform: rotate(1.2deg) } .polaroid:nth-child(3n) { transform: rotate(-.8deg) }
+.polaroid:hover { transform: rotate(0) scale(1.02) }
+.polaroid .img { aspect-ratio: 1; max-width: 100%; border-radius: 4px; display: grid; place-items: center; font-weight: 600; color: var(--ink); font-size: .85rem; text-align: center; padding: 12px; overflow: hidden }
+.polaroid .img img { width: 100%; height: 100%; object-fit: cover }
+.polaroid:nth-child(3n+1) .img { background: var(--mint) } .polaroid:nth-child(3n+2) .img { background: var(--lilac) } .polaroid:nth-child(3n) .img { background: color-mix(in srgb, var(--sun) 55%, var(--surface)) }
+.polaroid figcaption { display: grid; gap: 4px; padding-inline: 4px }
+.polaroid figcaption p { font-size: .9rem; color: var(--muted) }
+.kind { justify-self: start; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted) }
+.privacy { display: inline-flex; gap: 10px; align-items: center; background: var(--surface); border: 1px solid var(--line); padding: 10px 16px; border-radius: 999px; font-size: .88rem; color: var(--muted); justify-self: start }
+@media (max-width: 860px) { .gallery { grid-template-columns: 1fr 1fr } }
+@media (max-width: 540px) { .gallery { grid-template-columns: 1fr; border-width: 8px } }
+
+/* About this site */
+.site { display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; align-items: start }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 28px; padding: clamp(22px, 4vw, 36px); display: grid; gap: 16px; min-width: 0 }
+.map { display: grid; gap: 0 }
+.map a { display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 13px 0; border-bottom: 1px solid var(--line); text-decoration: none }
+.map a:last-child { border-bottom: 0 }
+.map a span:last-child { color: var(--muted); font-size: .9rem }
+.panel.sun { background: var(--sun); color: var(--ink); border: 0 }
+@media (max-width: 820px) { .site { grid-template-columns: 1fr } }
+
+/* Interests & links */
+.ihead { display: grid; grid-template-columns: 1fr 240px; gap: 32px; align-items: end }
+.ihead > * { min-width: 0 }
+.snap { width: 100%; max-width: 240px; height: auto; aspect-ratio: 1; object-fit: cover; background: var(--surface); padding: 10px 10px 34px; border-radius: 6px; box-shadow: var(--shadow); transform: rotate(3deg) }
+@media (max-width: 640px) { .ihead { grid-template-columns: 1fr } .snap { max-width: 200px; justify-self: center } }
+.interests { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px }
+.interest { border-radius: 24px; padding: 24px; display: grid; gap: 8px; align-content: start; min-width: 0 }
+.interest:nth-child(1) { background: var(--mint) } .interest:nth-child(2) { background: var(--lilac) } .interest:nth-child(3) { background: var(--sky) }
+.interest .ico { font-size: 1.8rem }
+.interest p { color: var(--muted) }
+.linklist { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px }
+.linkrow { display: grid; grid-template-columns: 46px 1fr auto; gap: 14px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 14px 18px 14px 14px; text-decoration: none; transition: transform .2s; min-width: 0 }
+.linkrow:hover { transform: translateY(-2px) }
+.linkrow .ico { width: 46px; height: 46px; border-radius: 14px; background: var(--bg); display: grid; place-items: center; font-size: 1.2rem }
+.linkrow > div { min-width: 0 }
+.linkrow small { color: var(--muted); display: block; overflow-wrap: anywhere }
+@media (max-width: 760px) { .interests, .linklist { grid-template-columns: 1fr } }
+
+footer { padding-block: 32px 48px; border-top: 1px solid var(--line); color: var(--muted); font-size: .85rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px }
+
+@media (prefers-reduced-motion: reduce) { .track { animation: none } .btn, .card, .polaroid, .linkrow { transition: none } }
+</style>
+</head>
+<body>
+
+<!-- ============ NAVIGATION ============ -->
+<div class="wrap">
+  <nav aria-label="Portfolio pages">
+    <div class="navbar">
+      <a class="logo" href="#home">Shanica P.</a>
+      <div class="links">
+        <a href="#home">Home</a>
+        <a href="#about">About Me</a>
+        <a href="#philosophy">Philosophy</a>
+        <a href="#reflections">Reflections</a>
+        <a href="#lms">Google Classroom &amp; Quizizz</a>
+        <a href="#podcast">Podcast</a>
+        <a href="#artifacts">Artifacts</a>
+        <a href="#interests">Interests &amp; Links</a>
+        <a href="#website">About This Website</a>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<main class="wrap">
+
+<!-- ============ HOME ============ -->
+<section class="page" id="home" data-page>
+  <header class="hero">
+    <div>
+      <span class="hello"><span class="dot"></span>Teaching E-Portfolio · PGDE, CASE</span>
+      <h1>Hi, I'm <em>Shanica.</em></h1>
+      <svg class="squiggle" viewBox="0 0 260 18" fill="none" aria-hidden="true"><path d="M2 12 C 30 2, 50 2, 72 10 S 118 18, 140 9 S 190 0, 214 9 S 248 14, 258 6" stroke="#ffc93c" stroke-width="4" stroke-linecap="round" fill="none"/></svg>
+      <p class="lede">English Language and Literature teacher. Welcome to my classroom online, where you'll find my philosophy, my reflections, the digital tools I use, my podcast, and real work from my students.</p>
+      <div class="cta">
+        <a class="btn primary" href="#about">Meet me</a>
+        <a class="btn ghost" href="#artifacts">See my artifacts</a>
+      </div>
+    </div>
+    <div class="portrait">
+      <div class="arch" style="padding:0"><img src="images/shanica-portrait.jpg" alt="Shanica Patterson in a black blazer, smiling" width="900" height="1200"></div>
+      <span class="sticker s1">📍 Jamaica</span>
+      <span class="sticker s2">📚 English &amp; Literature</span>
+    </div>
+    <span class="chalk c1" aria-hidden="true"></span><span class="chalk c2" aria-hidden="true"></span><span class="chalk c3" aria-hidden="true"></span>
+  </header>
+
+  <div class="ribbon" aria-hidden="true">
+    <div class="track">
+      <span>Read widely</span><span>Write boldly</span><span>Every voice matters</span><span>Stories connect us</span><span>Think critically</span>
+      <span>Read widely</span><span>Write boldly</span><span>Every voice matters</span><span>Stories connect us</span><span>Think critically</span>
+    </div>
+  </div>
+
+  <div class="dir">
+    <a class="card c-mint" href="#about"><span class="ico">👋</span><h3>About Me</h3><p>Who I am and how I came to teaching.</p><span class="go">Open →</span></a>
+    <a class="card c-lilac" href="#philosophy"><span class="ico">💡</span><h3>Philosophy</h3><p>What I believe about teaching and learning.</p><span class="go">Open →</span></a>
+    <a class="card c-sun" href="#reflections"><span class="ico">📝</span><h3>Reflections</h3><p>What I've learned from my practice.</p><span class="go">Open →</span></a>
+    <a class="card c-sky" href="#lms"><span class="ico">💻</span><h3>Google Classroom &amp; Quizizz</h3><p>How I use a learning management system.</p><span class="go">Open →</span></a>
+    <a class="card c-sky" href="#podcast"><span class="ico">🎙️</span><h3>Podcast</h3><p>Episodes about life in the classroom.</p><span class="go">Listen →</span></a>
+    <a class="card c-mint" href="#artifacts"><span class="ico">📂</span><h3>Artifacts</h3><p>Evidence of my work with students.</p><span class="go">Open →</span></a>
+    <a class="card c-lilac" href="#interests"><span class="ico">✨</span><h3>Interests &amp; Links</h3><p>What I enjoy outside the classroom.</p><span class="go">Open →</span></a>
+    <a class="card c-sun" href="#website"><span class="ico">🧭</span><h3>About This Website</h3><p>Why I made it and how to use it.</p><span class="go">Open →</span></a>
+  </div>
+</section>
+
+<!-- ============ ABOUT ME ============ -->
+<section class="page" id="about" data-page>
+  <div class="page-head">
+    <span class="eyebrow">About me</span>
+    <h1>A little about <em>me</em></h1>
+  </div>
+  <div class="about">
+    <div class="arch" style="padding:0"><img src="images/shanica-portrait.jpg" alt="Portrait of Shanica Patterson" width="900" height="1200" loading="lazy"></div>
+    <div style="display:grid;gap:24px;min-width:0">
+      <div class="prose">
+        <p>I was born and raised in Port Antonio, Portland, where I attended Titchfield High School. My passion for communication led me to the University of Technology, Jamaica (UTech), where I earned a bachelor's degree in Communication Arts and Technology, majoring in Journalism.</p>
+        <p>Journalism taught me how powerful clear, confident communication can be. Today, I bring that background into the English Language and Literature classroom. My goal is to help every student find their voice and express themselves effectively, whether they are writing an essay, analysing a poem, or speaking in front of their peers.</p>
+        <p>I teach English Language and Literature to students in grades 7 to 9 at Happy Grove High School in Portland. I am also completing my Postgraduate Diploma in Education at The College of Agriculture, Science and Education (CASE) in Portland, as I continue to grow as an educator.</p>
+      </div>
+      <div class="facts">
+        <div class="fact"><span class="eyebrow">Hometown</span><b>Port Antonio, Portland</b></div>
+        <div class="fact"><span class="eyebrow">Degree</span><b>BA, Communication Arts &amp; Technology (Journalism), UTech</b></div>
+        <div class="fact"><span class="eyebrow">Subjects</span><b>English Language &amp; Literature</b></div>
+        <div class="fact"><span class="eyebrow">Programme</span><b>PGDE, CASE (in progress)</b></div>
+        <div class="fact"><span class="eyebrow">School</span><b>Happy Grove High School, Portland</b></div>
+        <div class="fact"><span class="eyebrow">Grade levels</span><b>Grades 7–9</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PHILOSOPHY ============ -->
+<section class="page" id="philosophy" data-page>
+  <div class="page-head">
+    <span class="eyebrow">Philosophy of teaching</span>
+    <h1>What I believe about <em>learning</em></h1>
+  </div>
+  <div class="philo">
+    <p class="bigquote"><span class="mark">“</span>In my classroom, students do the thinking, find their voices, and feel respected enough to speak up.<span class="mark">”</span></p>
+    <div class="prose">
+      <p>I believe that every student learns differently, so no single method can reach every learner. For this reason, I use differentiated instruction in my English Language and Literature classes. In one lesson, students may discuss a text, read independently, complete a hands-on activity, or play a learning game. This variety gives every student, whatever their strengths, a way into the lesson.</p>
+      <p>I see my role as a facilitator rather than a lecturer. I keep my classroom student-centred, so my students do most of the thinking and the hands-on work while I guide them, ask questions, and make sure they stay on the right track. I move away from the "banking" approach, where the teacher simply deposits information into students. Instead, I want my students to think critically, build their own understanding, and leave my class able to express themselves and communicate effectively.</p>
+      <p>Respect is the foundation of my classroom. I respect my students' feelings, and in return I expect them to respect the classroom, their classmates, and me. I am assertive in my classroom management, and I do not tolerate bullying. As a result, my students feel free to speak up, ask questions, and ask for correction without fear. The atmosphere is calm and settled, ready for learning, with room to share a laugh along the way.</p>
+      <p>To know where my students are, I assess them in many ways. I walk the classroom as students work, ask questions throughout the lesson, and use exit tickets at the end. Students also show their learning through presentations, activities, online quizzes, and lessons turned into games. What I learn from these checks shapes what I teach next.</p>
+    </div>
+    <div class="beliefs">
+      <div class="belief"><span class="ico">🧩</span><h3>Every learner is different</h3><p>I differentiate so every student has a way in.</p></div>
+      <div class="belief"><span class="ico">💭</span><h3>Students do the thinking</h3><p>I facilitate and guide while they build understanding.</p></div>
+      <div class="belief"><span class="ico">🤝</span><h3>Respect comes first</h3><p>A calm, safe classroom where every voice is heard.</p></div>
+      <div class="belief"><span class="ico">🧭</span><h3>Assessment guides me</h3><p>I check understanding often and adjust my teaching.</p></div>
+    </div>
+    <span class="eyebrow" style="margin-top:8px">Influences on my practice</span>
+    <div class="theory">
+      <div><b>Paulo Freire</b><p>Rejecting the "banking" model so students think critically.</p></div>
+      <div><b>Lev Vygotsky</b><p>Scaffolding students until they can work on their own.</p></div>
+      <div><b>Carol Ann Tomlinson</b><p>Differentiating instruction to meet each learner's needs.</p></div>
+      <div><b>Howard Gardner</b><p>Multiple intelligences: students learn in different ways.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REFLECTIONS ============ -->
+<section class="page" id="reflections" data-page>
+  <div class="page-head">
+    <span class="eyebrow">Reflections</span>
+    <h1>How I'm <em>growing</em></h1>
+    <p>Looking back on my practice: what happened, what I learned, and what I'll do differently.</p>
+  </div>
+  <div class="model" aria-label="Reflection model">
+    <span>1 · What happened</span><span>2 · How I felt</span><span>3 · What went well and what didn't</span><span>4 · What I learned</span><span>5 · What I'll do next time</span>
+  </div>
+  <div class="timeline">
+    <article class="entry"><span class="when">Week 8 · Grade 8³<br>Nov 2, 2026</span><div>
+      <h3>Bringing poetry to life with "Linstead Market"</h3>
+      <p><strong>What happened.</strong> I introduced my Grade 8³ class to poetry, focusing on the structure of ballads and free verse. We began by clapping the beat of the Jamaican folk song "Linstead Market", then compared it with a passage from <em>My Father, Sun-Sun Johnson</em> to hear the difference between a regular beat and natural speech. Students then worked in pairs to mark the stanzas and rhymes in "The Wreck of the Hesperus" and "Fog", completed a comparison matrix, checked another pair's work, and finished with an exit ticket.</p>
+      <p><strong>How I felt.</strong> This lesson was fun to teach. The energy in the room was great, and it was rewarding to see the class so involved in their first poetry lesson of the term.</p>
+      <p><strong>What went well.</strong> Students enjoyed clapping to "Linstead Market" the most. Starting with a song they already knew made the idea of meter easy to grasp and connected poetry to their own culture. They also responded well to marking the poems in pairs, because bracketing stanzas, circling end words, and joining rhymes kept them actively involved. The exit tickets showed that most students could identify a stanza, label an ABCB rhyme scheme, and explain the difference between a ballad and free verse.</p>
+      <p><strong>What didn't go as well.</strong> Some pairs struggled to work together, and in those pairs one partner did most of the work while the other watched.</p>
+      <p><strong>What I learned.</strong> Music is a powerful way into poetry for my students. When a lesson connects to something familiar and lets them move and make sound, they engage more and understand faster. This supports my belief in differentiation and Gardner's idea that students learn through different intelligences, including musical intelligence. I also learned that pair work needs clear structure so that every student takes part.</p>
+      <p><strong>What I'll do next time.</strong> I will bring more music and songs into my poetry lessons, for example by inviting students to share Jamaican songs that tell a story and mapping their rhyme schemes together. I will also check in with pairs early and make sure partners swap roles, so the work is shared fairly.</p>
+    </div></article>
+    <article class="entry"><span class="when">Week 5 · Grade 8³<br>Oct 5, 2026</span><div>
+      <h3>Two goals, one chair: teaching conflict</h3>
+      <p><strong>What happened.</strong> This lesson introduced external conflict (Man vs. Man) through the rivalry between Sun-Sun and Jake Hibbertson in Chapters 5 and 6 of <em>My Father, Sun-Sun Johnson</em>. We opened with a short demonstration in which two students tried to use one chair for completely different goals, which led into a discussion of what conflict really is. Students then worked in pairs to underline Sun-Sun's actions and circle Jake's obstacles in the text, built a conflict matrix together on the board, completed a conflict map, checked another pair's work, and finished with an exit ticket.</p>
+      <p><strong>How I felt.</strong> I was pleased with this lesson. The class stayed focused, and students did the thinking while I guided them, which is exactly how I want my classroom to work.</p>
+      <p><strong>What went well.</strong> The lesson went well from start to finish. The chair demonstration gave students a clear, concrete picture of two goals that cannot both be met before we turned to the novel. Because students found and presented the evidence themselves, they built their own understanding of how Jake acts as a barrier to Sun-Sun. The exit tickets showed that almost everyone could define Man vs. Man conflict, identify one of Sun-Sun's goals, and name an action Jake takes against it.</p>
+      <p><strong>What didn't go as well.</strong> Although almost every student did well, a small number still needed extra support to explain how the conflict drives the plot.</p>
+      <p><strong>What I learned.</strong> A simple, concrete demonstration can unlock an abstract literary idea. I also saw the value of scaffolding: sentence frames such as "Sun-Sun wants to ____ but Jake prevents this by ____" gave students the support they needed to reach the objective on their own, as Vygotsky describes.</p>
+      <p><strong>What I'll do next time.</strong> I will keep the demonstration and the student-led evidence search. I will also identify the students who need support earlier, give them the sentence frame from the start, and follow up with them in the next lesson.</p>
+    </div></article>
+  </div>
+</section>
+
+<!-- ============ LEARNING MANAGEMENT SYSTEM ============ -->
+<section class="page" id="lms" data-page>
+  <div class="page-head">
+    <span class="eyebrow">Learning management system</span>
+    <h1>Teaching with <em>technology</em></h1>
+    <p>How I use Google Classroom and Quizizz to share work, give feedback, and check what my students understand.</p>
+  </div>
+  <div class="lms">
+    <article class="tool">
+      <div class="tool-top">
+        <span class="badge gc"><i>GC</i>Google Classroom</span>
+        <h2>My <em>class</em> online</h2>
+        <p>My Grade 7C English Language class has its own Google Classroom. I organise the classwork by topic, such as context clues, word skills, and external text features, so students can easily find notes, study guides, and quizzes for each unit.</p>
+      </div>
+      <div class="window"><div class="bar"><span></span><span></span><span></span></div><img class="full" src="images/gc-stream.png" alt="Google Classroom stream for 7 Grade English Language, with a Grade 7C banner and a posted live quiz on context clues" width="1030" height="574" loading="lazy"></div>
+      <div class="window" style="margin-top:0"><div class="bar"><span></span><span></span><span></span></div><img class="full" src="images/gc-classwork.png" alt="Classwork page organised by topic: a language study guide, a context clues live quiz, word skills, and word skills notes" width="524" height="466" loading="lazy"></div>
+      <div class="uses">
+        <span class="eyebrow">How I use it</span>
+        <ul><li>Organising classwork by topic so students find what they need</li><li>Posting notes and study guides for each unit</li><li>Assigning live quizzes, such as my context clues quiz</li><li>Sharing announcements and reminders with the class</li></ul>
+        <div class="join">
+          <span class="eyebrow">Join my class</span>
+          <div class="coderow"><code id="class-code">tlvn44kh</code><button type="button" class="btn line" id="copy-code">Copy code</button></div>
+          <p>Sign in with a Google account, then tap the button below and choose <strong>Join</strong>. You can also go to classroom.google.com, tap <strong>+</strong>, choose <strong>Join class</strong>, and enter the code.</p>
+          <a class="btn dark" href="https://classroom.google.com/c/ODY5NjU1MzA0ODc5?cjc=tlvn44kh" target="_blank" rel="noopener">Join my Google Classroom ↗</a>
+        </div>
+      </div>
+    </article>
+    <article class="tool">
+      <div class="tool-top">
+        <span class="badge qz"><i>Q</i>Quizizz (now Wayground)</span>
+        <h2>Quizzes that <em>engage</em></h2>
+        <p>I create my own quizzes on Wayground, formerly Quizizz, to check understanding and make revision fun. My quizzes include Literary Genres and <em>A Cow Called Boy</em>, English Grammar, and Jamaican English and Vocabulary.</p>
+      </div>
+      <div class="window"><div class="bar"><span></span><span></span><span></span></div><img class="full" src="images/quizizz-library.png" alt="Wayground library of quizzes I created, including Literary Genres and A Cow Called Boy, English Grammar Quiz, and Jamaican English and Vocabulary Quiz" width="1000" height="544" loading="lazy"></div>
+      <div class="uses">
+        <span class="eyebrow">How I use it</span>
+        <ul><li>Quick checks on grammar, vocabulary, and literary devices</li><li>Comprehension quizzes after a reading</li><li>Revision games before tests</li><li>Using the results report to plan reteaching</li></ul>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ PODCAST ============ -->
+<section class="page" id="podcast" data-page>
+  <div class="page-head">
+    <span class="eyebrow">Podcast</span>
+    <h1>Talking <em>teaching</em></h1>
+  </div>
+  <div class="pod">
+    <div class="cover"><span>A podcast by Shanica</span><b>Show name</b><span>English &amp; Literature</span></div>
+    <div>
+      <p class="sub" style="margin-top:0">Short episodes about teaching English and literature: books, writing, and life in the classroom.</p>
+      <div class="wave" id="wave" aria-hidden="true"></div>
+      <div class="eps">
+        <!-- When the audio is ready, replace the "Coming soon" span with:
+             <audio controls preload="none" src="audio/episode-1.mp3"></audio> -->
+        <div class="ep"><span class="play" aria-hidden="true">▶</span><div><strong>Episode 1 · Why I teach English</strong><br><small>The story behind my love of language and literature</small></div><span class="len">Coming soon</span></div>
+        <div class="ep"><span class="play" aria-hidden="true">▶</span><div><strong>Episode 2 · Getting students to love reading</strong><br><small>What works with reluctant readers in my classroom</small></div><span class="len">Coming soon</span></div>
+        <div class="ep"><span class="play" aria-hidden="true">▶</span><div><strong>Episode 3 · Technology in the English classroom</strong><br><small>How Google Classroom and Quizizz support my teaching</small></div><span class="len">Coming soon</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ARTIFACTS ============ -->
+<section class="page" id="artifacts" data-page>
+  <div class="page-head">
+    <span class="eyebrow">Artifacts</span>
+    <h1>Evidence of <em>learning</em></h1>
+    <p>Work from my classroom, with what each piece shows about my teaching and my students' learning.</p>
+  </div>
+  <div class="filters" role="group" aria-label="Filter artifacts">
+    <button type="button" id="f-all" data-filter="all" aria-pressed="true">All</button>
+    <button type="button" id="f-student" data-filter="student" aria-pressed="false">Student work</button>
+    <button type="button" id="f-lesson" data-filter="lesson" aria-pressed="false">Lesson plans</button>
+    <button type="button" id="f-resource" data-filter="resource" aria-pressed="false">Resources</button>
+  </div>
+  <div class="gallery" id="gallery">
+    <figure class="polaroid" data-kind="student"><div class="img">Photo of student work</div><figcaption><span class="kind">Student work</span><h3>e.g. Descriptive writing</h3><p>What students wrote, and what it shows about their learning.</p></figcaption></figure>
+    <figure class="polaroid" data-kind="lesson"><div class="img">5E lesson plan · Week 8<br>Grade 8³</div><figcaption><span class="kind">Lesson plan</span><h3>Introduction to Poetry: Ballads and Free Verse</h3><p>A 60-minute 5E lesson where students clap the beat of "Linstead Market", label rhyme schemes, and compare a ballad with a free verse poem. See my reflection on this lesson.</p></figcaption></figure>
+    <figure class="polaroid" data-kind="resource"><div class="img">Worksheet, chart, or game</div><figcaption><span class="kind">Resource</span><h3>e.g. Literary devices chart</h3><p>What you made and how students used it.</p></figcaption></figure>
+  </div>
+  <p class="privacy">🔒 Student names and faces are hidden to protect their privacy.</p>
+</section>
+
+<!-- ============ INTERESTS & LINKS ============ -->
+<section class="page" id="interests" data-page>
+  <div class="ihead">
+    <div class="page-head">
+      <span class="eyebrow">Other interests</span>
+      <h1>Outside the <em>classroom</em></h1>
+      <p>The things I enjoy and the places you can find me online.</p>
+    </div>
+    <img class="snap" src="images/shanica-casual.jpg" alt="Shanica Patterson in glasses and braids, relaxing at home" width="800" height="800" loading="lazy">
+  </div>
+  <div class="interests">
+    <div class="interest"><span class="ico">🎨</span><h3>Design &amp; building websites</h3><p>I enjoy graphic design and coding websites with HTML and CSS. Bringing ideas to life visually is a skill I also use to create engaging resources for my students.</p></div>
+    <div class="interest"><span class="ico">📖</span><h3>Reading</h3><p>Reading keeps me curious and growing, and it is a love I enjoy passing on to my students every day.</p></div>
+    <div class="interest"><span class="ico">🙏🏽</span><h3>Faith</h3><p>My faith is an important part of my life. It shapes the respect, patience, and care I bring into my classroom.</p></div>
+  </div>
+  <div style="display:grid;gap:14px">
+    <span class="eyebrow">Links</span>
+    <div class="linklist">
+      <a class="linkrow" href="https://classroom.google.com/c/ODY5NjU1MzA0ODc5?cjc=tlvn44kh" target="_blank" rel="noopener"><span class="ico">🎓</span><div><strong>My Google Classroom</strong><small>Class code: tlvn44kh</small></div><span aria-hidden="true">↗</span></a>
+      <a class="linkrow" href="https://ash515-create.github.io/-Patterson-s-Portfolio/" target="_blank" rel="noopener"><span class="ico">🌐</span><div><strong>My professional website</strong><small>ash515-create.github.io</small></div><span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT THIS WEBSITE ============ -->
+<section class="page" id="website" data-page>
+  <div class="page-head">
+    <span class="eyebrow">About this website</span>
+    <h1>Why I made <em>this site</em></h1>
+  </div>
+  <div class="site">
+    <div class="panel">
+      <h3>Purpose</h3>
+      <div class="prose" style="font-size:1rem">
+        <p>This e-portfolio was created as part of my Postgraduate Diploma in Education at The College of Agriculture, Science and Education (CASE). It brings together evidence of my growth as a teacher, from my philosophy and reflections to the work I've done with my students.</p>
+        <p>As an English Language and Literature teacher, I believe students learn best when they can see their own voices and experiences reflected in what they read and write. This site is my way of showing that belief in action, through the lessons I plan, the tools I use, and the work my students produce.</p>
+        <p>It is a living portfolio. I will keep adding to it as I gain experience, try new strategies, and grow as an educator.</p>
+      </div>
+      <h3 style="margin-top:8px">How to use it</h3>
+      <p>Use the menu at the top to move between pages, or start from the cards on the home page. Each page covers one part of my practice.</p>
+      <h3 style="margin-top:8px">How it was built</h3>
+      <p>Designed and coded in HTML and CSS with the help of AI tools. All writing, reflections, and classroom work are my own.</p>
+    </div>
+    <div class="panel">
+      <h3>What you'll find</h3>
+      <div class="map">
+        <a href="#about"><span>About Me</span><span>Who I am</span></a>
+        <a href="#philosophy"><span>Philosophy</span><span>My beliefs</span></a>
+        <a href="#reflections"><span>Reflections</span><span>My growth</span></a>
+        <a href="#lms"><span>Google Classroom &amp; Quizizz</span><span>Digital tools</span></a>
+        <a href="#podcast"><span>Podcast</span><span>Episodes</span></a>
+        <a href="#artifacts"><span>Artifacts</span><span>Evidence</span></a>
+        <a href="#interests"><span>Interests &amp; Links</span><span>Beyond class</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><span>© 2026 Shanica Patterson</span><span>English &amp; Literature · Teaching E-Portfolio · PGDE, CASE</span></footer>
+</main>
+
+<script>
+(function () {
+  // Page switching: each section is its own page, opened by its #name
+  var pages = Array.prototype.slice.call(document.querySelectorAll('[data-page]'));
+  var navLinks = document.querySelectorAll('.links a');
+  function show(target) {
+    var id = typeof target === 'string' ? target : (location.hash || '#home').slice(1);
+    if (!pages.some(function (p) { return p.id === id; })) id = 'home';
+    document.querySelector('main').classList.add('js');
+    pages.forEach(function (p) { p.classList.toggle('is-current', p.id === id); });
+    navLinks.forEach(function (a) {
+      if (a.getAttribute('href') === '#' + id) { a.setAttribute('aria-current', 'page'); a.scrollIntoView({ block: 'nearest', inline: 'center' }); }
+      else a.removeAttribute('aria-current');
+    });
+    window.scrollTo(0, 0);
+  }
+  // Switch pages directly on click, so the menu works even where the browser won't change the #address
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="#"]');
+    if (!a) return;
+    var id = a.getAttribute('href').slice(1);
+    if (!pages.some(function (p) { return p.id === id; })) return;
+    e.preventDefault();
+    show(id);
+    try { history.pushState(null, '', '#' + id); } catch (err) {}
+  });
+  window.addEventListener('hashchange', function () { show(); });
+  window.addEventListener('popstate', function () { show(); });
+  show();
+
+  // Artifact filters
+  var buttons = document.querySelectorAll('.filters button');
+  buttons.forEach(function (b) {
+    b.addEventListener('click', function () {
+      buttons.forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      var f = b.getAttribute('data-filter');
+      document.querySelectorAll('#gallery .polaroid').forEach(function (p) {
+        p.hidden = !(f === 'all' || p.getAttribute('data-kind') === f);
+      });
+    });
+  });
+
+  // Copy class code
+  var copyBtn = document.getElementById('copy-code');
+  if (copyBtn) copyBtn.addEventListener('click', function () {
+    var code = document.getElementById('class-code');
+    function done() { copyBtn.textContent = 'Copied'; setTimeout(function () { copyBtn.textContent = 'Copy code'; }, 2000); }
+    function fallback() { var r = document.createRange(); r.selectNodeContents(code); var s = getSelection(); s.removeAllRanges(); s.addRange(r); copyBtn.textContent = 'Code selected'; }
+    try { navigator.clipboard.writeText(code.textContent).then(done, fallback); } catch (e) { fallback(); }
+  });
+
+  // Podcast waveform decoration
+  var w = document.getElementById('wave');
+  if (w) {
+    var seed = 7;
+    for (var i = 0; i < 64; i++) {
+      seed = (seed * 9301 + 49297) % 233280;
+      var h = 18 + Math.round((Math.sin(i / 3.2) * .35 + .5) * 60 + (seed / 233280) * 22);
+      var bar = document.createElement('i');
+      bar.style.height = Math.min(h, 100) + '%';
+      if (i < 22) bar.className = 'on';
+      w.appendChild(bar);
+    }
+  }
+})();
+</script>
+</body>
+</html>
