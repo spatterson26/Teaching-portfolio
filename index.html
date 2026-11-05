@@ -205,6 +205,15 @@ main.js .page:not(.is-current) { display: none !important } main.js .page.is-cur
 .ep small { color: #a9a5c4 }
 .ep .len { font-size: .8rem; color: #a9a5c4 }
 .ep audio { grid-column: 1 / -1; width: 100% }
+.ep-live { background: rgba(255,255,255,.1) !important; grid-template-columns: 1fr auto !important; padding: 14px 16px !important }
+.ep-live .play { display: none }
+.pod { align-items: start !important }
+.cover b { font-size: clamp(1.5rem, 3vw, 1.9rem) !important; overflow-wrap: anywhere }
+.ep audio { margin-top: 4px; accent-color: #ffc93c }
+.topics { grid-column: 1 / -1; display: grid; gap: 8px; padding: 6px 4px 4px }
+.topics .eyebrow { color: #c4c0de }
+.topics ol { margin: 0; padding-left: 22px; display: grid; gap: 6px; color: #f1effa; font-size: .95rem }
+.topics li::marker { color: #ffc93c; font-weight: 700 }
 @media (max-width: 760px) { .pod { grid-template-columns: 1fr } .cover { max-width: 220px } }
 
 /* Artifacts */
@@ -323,7 +332,7 @@ footer { padding-block: 32px 48px; border-top: 1px solid var(--line); color: var
     <a class="card c-lilac" href="#philosophy"><span class="ico">💡</span><h3>Philosophy</h3><p>How I use technology to reach every learner.</p><span class="go">Open →</span></a>
     <a class="card c-sun" href="#reflections"><span class="ico">📝</span><h3>Reflections</h3><p>What I've learned from my practice.</p><span class="go">Open →</span></a>
     <a class="card c-sky" href="#lms"><span class="ico">💻</span><h3>Google Classroom &amp; Quizizz</h3><p>How I use a learning management system.</p><span class="go">Open →</span></a>
-    <a class="card c-sky" href="#podcast"><span class="ico">🎙️</span><h3>Podcast</h3><p>Episodes about life in the classroom.</p><span class="go">Listen →</span></a>
+    <a class="card c-sky" href="#podcast"><span class="ico">🎙️</span><h3>Podcast</h3><p>The Communication Corner: one skill per episode.</p><span class="go">Listen →</span></a>
     <a class="card c-mint" href="#artifacts"><span class="ico">📂</span><h3>Artifacts</h3><p>Evidence of my work with students.</p><span class="go">Open →</span></a>
     <a class="card c-lilac" href="#interests"><span class="ico">✨</span><h3>Interests &amp; Links</h3><p>What I enjoy outside the classroom.</p><span class="go">Open →</span></a>
     <a class="card c-sun" href="#website"><span class="ico">🧭</span><h3>About This Website</h3><p>Why I made it and how to use it.</p><span class="go">Open →</span></a>
@@ -478,19 +487,33 @@ footer { padding-block: 32px 48px; border-top: 1px solid var(--line); color: var
 <section class="page" id="podcast" data-page>
   <div class="page-head">
     <span class="eyebrow">Podcast</span>
-    <h1>Talking <em>teaching</em></h1>
+    <h1>The Communication <em>Corner</em></h1>
+    <p>A podcast that helps students say it clearly, write it correctly, and share their ideas with confidence. Each episode teaches one communication skill.</p>
   </div>
   <div class="pod">
-    <div class="cover"><span>A podcast by Shanica</span><b>Show name</b><span>English &amp; Literature</span></div>
+    <div class="cover"><span>A podcast by Miss Patterson</span><b>The Communication Corner</b><span>English Language &amp; Literature</span></div>
     <div>
-      <p class="sub" style="margin-top:0">Short episodes about teaching English and literature: books, writing, and life in the classroom.</p>
+      <p class="sub" style="margin-top:0">Hosted by Miss Shanica Patterson, Happy Grove High School, Portland.</p>
       <div class="wave" id="wave" aria-hidden="true"></div>
       <div class="eps">
-        <!-- When the audio is ready, replace the "Coming soon" span with:
-             <audio controls preload="none" src="audio/episode-1.mp3"></audio> -->
-        <div class="ep"><span class="play" aria-hidden="true">▶</span><div><strong>Episode 1 · Why I teach English</strong><br><small>The story behind my love of language and literature</small></div><span class="len">Coming soon</span></div>
-        <div class="ep"><span class="play" aria-hidden="true">▶</span><div><strong>Episode 2 · Getting students to love reading</strong><br><small>What works with reluctant readers in my classroom</small></div><span class="len">Coming soon</span></div>
-        <div class="ep"><span class="play" aria-hidden="true">▶</span><div><strong>Episode 3 · Technology in the English classroom</strong><br><small>How Google Classroom and Quizizz support my teaching</small></div><span class="len">Coming soon</span></div>
+        <div class="ep ep-live">
+          <span class="play" aria-hidden="true">▶</span>
+          <div><strong>Episode 1 · Subject-Verb Agreement</strong><br><small>For Grade 7 students, and anyone who wants to make their words agree</small></div>
+          <span class="len">10:51</span>
+          <audio controls preload="metadata" src="podcast_episode.mp3">Your browser cannot play this audio.</audio>
+          <div class="topics">
+            <span class="eyebrow">In this episode</span>
+            <ol>
+              <li>Introduction: welcome to The Communication Corner</li>
+              <li>The rules of subject-verb agreement</li>
+              <li>Jamaican Creole and Standard English: how subject-verb agreement differs</li>
+              <li>Using technology to learn and practise subject-verb agreement</li>
+              <li>Mini interactive quiz: pause and try</li>
+              <li>Closing</li>
+            </ol>
+          </div>
+        </div>
+        <div class="ep"><span class="play" aria-hidden="true">▶</span><div><strong>Episode 2 · Essay Writing</strong><br><small>For Grade 8: planning an essay, building strong paragraphs, and writing a powerful conclusion</small></div><span class="len">Coming soon</span></div>
       </div>
     </div>
   </div>
