@@ -138,7 +138,7 @@ main.js .page:not(.is-current) { display: none !important } main.js .page.is-cur
 .bigquote .mark { color: var(--coral) }
 .beliefs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px }
 .belief:nth-child(4) { background: var(--sky) }
-.theory { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--line) }
+.theory { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--line) }
 .theory div { padding: 16px 18px 4px 0; display: grid; gap: 4px; align-content: start; min-width: 0 }
 .theory b { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 1.35rem; line-height: 1.1 }
 .theory p { color: var(--muted); font-size: .9rem }
@@ -224,6 +224,10 @@ main.js .page:not(.is-current) { display: none !important } main.js .page.is-cur
 .polaroid:nth-child(3n+1) .img { background: var(--mint) } .polaroid:nth-child(3n+2) .img { background: var(--lilac) } .polaroid:nth-child(3n) .img { background: color-mix(in srgb, var(--sun) 55%, var(--surface)) }
 .polaroid figcaption { display: grid; gap: 4px; padding-inline: 4px }
 .polaroid figcaption p { font-size: .9rem; color: var(--muted) }
+.polaroid .plan-img { padding: 0; background: #fff !important }
+.polaroid .plan-img img { object-fit: cover; object-position: top }
+.polaroid .open { font-weight: 700; font-size: .88rem; color: var(--fg); justify-self: start }
+.polaroid figcaption p a { color: var(--fg) }
 .kind { justify-self: start; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted) }
 .privacy { display: inline-flex; gap: 10px; align-items: center; background: var(--surface); border: 1px solid var(--line); padding: 10px 16px; border-radius: 999px; font-size: .88rem; color: var(--muted); justify-self: start }
 @media (max-width: 860px) { .gallery { grid-template-columns: 1fr 1fr } }
@@ -316,7 +320,7 @@ footer { padding-block: 32px 48px; border-top: 1px solid var(--line); color: var
 
   <div class="dir">
     <a class="card c-mint" href="#about"><span class="ico">👋</span><h3>About Me</h3><p>Who I am and how I came to teaching.</p><span class="go">Open →</span></a>
-    <a class="card c-lilac" href="#philosophy"><span class="ico">💡</span><h3>Philosophy</h3><p>What I believe about teaching and learning.</p><span class="go">Open →</span></a>
+    <a class="card c-lilac" href="#philosophy"><span class="ico">💡</span><h3>Philosophy</h3><p>How I use technology to reach every learner.</p><span class="go">Open →</span></a>
     <a class="card c-sun" href="#reflections"><span class="ico">📝</span><h3>Reflections</h3><p>What I've learned from my practice.</p><span class="go">Open →</span></a>
     <a class="card c-sky" href="#lms"><span class="ico">💻</span><h3>Google Classroom &amp; Quizizz</h3><p>How I use a learning management system.</p><span class="go">Open →</span></a>
     <a class="card c-sky" href="#podcast"><span class="ico">🎙️</span><h3>Podcast</h3><p>Episodes about life in the classroom.</p><span class="go">Listen →</span></a>
@@ -355,29 +359,43 @@ footer { padding-block: 32px 48px; border-top: 1px solid var(--line); color: var
 <!-- ============ PHILOSOPHY ============ -->
 <section class="page" id="philosophy" data-page>
   <div class="page-head">
-    <span class="eyebrow">Philosophy of teaching</span>
-    <h1>What I believe about <em>learning</em></h1>
+    <span class="eyebrow">Philosophy of teaching with technology</span>
+    <h1>Technology for <em>every learner</em></h1>
+    <p>My philosophy of technology integration, and the beliefs about teaching it grows from.</p>
   </div>
   <div class="philo">
-    <p class="bigquote"><span class="mark">“</span>In my classroom, students do the thinking, find their voices, and feel respected enough to speak up.<span class="mark">”</span></p>
+    <p class="bigquote"><span class="mark">“</span>Every student deserves to learn, and technology helps me reach every kind of learner.<span class="mark">”</span></p>
+    <div class="prose">
+      <p>I believe that every student deserves to learn. My students have different minds, different strengths, and different ways of learning, and I believe every one of them should be catered to. Technology is one of my most powerful tools for doing this. It lets me present the same idea in many ways, through images, sound, video, text, and games, and it lets students show what they know in many ways too. This reflects the principles of Universal Design for Learning: when I plan with variety from the start, more students find a way in.</p>
+      <p>In my English Language and Literature classes, I choose each tool for a clear purpose. Google Classroom keeps our notes, study guides, and assignments organised by topic, so students can return to them at any time. Wayground (formerly Quizizz) and Kahoot turn revision into games and give me instant feedback on who understands and who needs more support. PowerPoint and audio recordings bring texts to life for visual and auditory learners, as when my class clapped along to a recording of "Linstead Market" to hear the beat of a ballad. Canva lets students complete assignments by designing their own posters, so they become creators rather than only consumers of content.</p>
+      <p>I use the TPACK framework to guide these choices. Technology is never the goal on its own; it has to fit both the English content I am teaching and the way I teach it. Because I see myself as a facilitator, I use technology to keep my classroom student-centred, so that students do the thinking, creating, and discovering while I guide them. With the SAMR model in mind, I aim to move beyond using technology as a simple substitute for paper and toward tasks that change what students can do, such as designing in Canva or recording their own work.</p>
+      <p>Technology must also be fair. Not all of my students have their own devices, so I plan for this. Students work in pairs and small groups to share devices, and every lesson has a backup plan with printed materials and the whiteboard in case the internet or electricity fails. No student should be left behind because of the tools they have at home.</p>
+      <p>Finally, I see technology integration as an ongoing journey. When I complete this course, I will keep learning new tools, take part in professional development, and reflect on which technologies truly improve my students' learning. As technology changes, my goal stays the same: to make sure every student has the chance to learn.</p>
+    </div>
+    <div class="beliefs">
+      <div class="belief"><span class="ico">🧩</span><h3>Every learner is different</h3><p>Technology gives every student a way into the lesson.</p></div>
+      <div class="belief"><span class="ico">🎨</span><h3>Students create</h3><p>From Canva posters to recordings, students make, not just watch.</p></div>
+      <div class="belief"><span class="ico">⚖️</span><h3>Technology must be fair</h3><p>Shared devices and backup plans so no one is left out.</p></div>
+      <div class="belief"><span class="ico">🧭</span><h3>Feedback guides me</h3><p>Quiz results show me who needs support next.</p></div>
+    </div>
+    <span class="eyebrow" style="margin-top:8px">Influences on my practice</span>
+    <div class="theory">
+      <div><b>TPACK</b><p>Mishra and Koehler: blending technology, teaching, and content knowledge.</p></div>
+      <div><b>SAMR</b><p>Puentedura: moving from substitution toward transforming learning.</p></div>
+      <div><b>Universal Design for Learning</b><p>Many ways to learn and to show learning.</p></div>
+      <div><b>Paulo Freire</b><p>Rejecting the "banking" model so students think critically.</p></div>
+      <div><b>Lev Vygotsky</b><p>Scaffolding students until they can work on their own.</p></div>
+      <div><b>Tomlinson &amp; Gardner</b><p>Differentiated instruction and multiple intelligences.</p></div>
+    </div>
+  </div>
+  <div class="philo">
+    <span class="eyebrow">The foundation</span>
+    <h2>The beliefs behind my <em>practice</em></h2>
     <div class="prose">
       <p>I believe that every student learns differently, so no single method can reach every learner. For this reason, I use differentiated instruction in my English Language and Literature classes. In one lesson, students may discuss a text, read independently, complete a hands-on activity, or play a learning game. This variety gives every student, whatever their strengths, a way into the lesson.</p>
       <p>I see my role as a facilitator rather than a lecturer. I keep my classroom student-centred, so my students do most of the thinking and the hands-on work while I guide them, ask questions, and make sure they stay on the right track. I move away from the "banking" approach, where the teacher simply deposits information into students. Instead, I want my students to think critically, build their own understanding, and leave my class able to express themselves and communicate effectively.</p>
       <p>Respect is the foundation of my classroom. I respect my students' feelings, and in return I expect them to respect the classroom, their classmates, and me. I am assertive in my classroom management, and I do not tolerate bullying. As a result, my students feel free to speak up, ask questions, and ask for correction without fear. The atmosphere is calm and settled, ready for learning, with room to share a laugh along the way.</p>
       <p>To know where my students are, I assess them in many ways. I walk the classroom as students work, ask questions throughout the lesson, and use exit tickets at the end. Students also show their learning through presentations, activities, online quizzes, and lessons turned into games. What I learn from these checks shapes what I teach next.</p>
-    </div>
-    <div class="beliefs">
-      <div class="belief"><span class="ico">🧩</span><h3>Every learner is different</h3><p>I differentiate so every student has a way in.</p></div>
-      <div class="belief"><span class="ico">💭</span><h3>Students do the thinking</h3><p>I facilitate and guide while they build understanding.</p></div>
-      <div class="belief"><span class="ico">🤝</span><h3>Respect comes first</h3><p>A calm, safe classroom where every voice is heard.</p></div>
-      <div class="belief"><span class="ico">🧭</span><h3>Assessment guides me</h3><p>I check understanding often and adjust my teaching.</p></div>
-    </div>
-    <span class="eyebrow" style="margin-top:8px">Influences on my practice</span>
-    <div class="theory">
-      <div><b>Paulo Freire</b><p>Rejecting the "banking" model so students think critically.</p></div>
-      <div><b>Lev Vygotsky</b><p>Scaffolding students until they can work on their own.</p></div>
-      <div><b>Carol Ann Tomlinson</b><p>Differentiating instruction to meet each learner's needs.</p></div>
-      <div><b>Howard Gardner</b><p>Multiple intelligences: students learn in different ways.</p></div>
     </div>
   </div>
 </section>
@@ -483,7 +501,7 @@ footer { padding-block: 32px 48px; border-top: 1px solid var(--line); color: var
   <div class="page-head">
     <span class="eyebrow">Artifacts</span>
     <h1>Evidence of <em>learning</em></h1>
-    <p>Work from my classroom, with what each piece shows about my teaching and my students' learning.</p>
+    <p>Work from my classroom, with what each piece shows about my teaching and my students' learning. My Term 1 lesson plans for Grade 8³ English Literature follow the 5E model and the Jamaican National Standards Curriculum. Tap any plan to open it.</p>
   </div>
   <div class="filters" role="group" aria-label="Filter artifacts">
     <button type="button" id="f-all" data-filter="all" aria-pressed="true">All</button>
@@ -493,7 +511,16 @@ footer { padding-block: 32px 48px; border-top: 1px solid var(--line); color: var
   </div>
   <div class="gallery" id="gallery">
     <figure class="polaroid" data-kind="student"><div class="img">Photo of student work</div><figcaption><span class="kind">Student work</span><h3>e.g. Descriptive writing</h3><p>What students wrote, and what it shows about their learning.</p></figcaption></figure>
-    <figure class="polaroid" data-kind="lesson"><div class="img">5E lesson plan · Week 8<br>Grade 8³</div><figcaption><span class="kind">Lesson plan</span><h3>Introduction to Poetry: Ballads and Free Verse</h3><p>A 60-minute 5E lesson where students clap the beat of "Linstead Market", label rhyme schemes, and compare a ballad with a free verse poem. See my reflection on this lesson.</p></figcaption></figure>
+    <figure class="polaroid" data-kind="lesson"><a class="img plan-img" href="portfolio-update/lessons/week-02-lesson-plan.pdf" target="_blank" rel="noopener"><img src="portfolio-update/lessons/week-02-preview.jpg" alt="First page of my Week 2 lesson plan: Setting and Atmosphere" width="510" height="660" loading="lazy"></a><figcaption><span class="kind">Lesson plan · Week 2 · Sep 14</span><h3>Setting and Atmosphere</h3><p>Exploring how setting and atmosphere are built in Chapter 1 of <em>My Father, Sun-Sun Johnson</em>.</p><a class="open" href="portfolio-update/lessons/week-02-lesson-plan.pdf" target="_blank" rel="noopener">Open lesson plan (PDF) ↗</a></figcaption></figure>
+    <figure class="polaroid" data-kind="lesson"><a class="img plan-img" href="portfolio-update/lessons/week-03-lesson-plan.pdf" target="_blank" rel="noopener"><img src="portfolio-update/lessons/week-03-preview.jpg" alt="First page of my Week 3 lesson plan: Characterization: External Traits" width="510" height="660" loading="lazy"></a><figcaption><span class="kind">Lesson plan · Week 3 · Sep 21</span><h3>Characterization: External Traits</h3><p>Analysing how Sun-Sun and Jake are described in Chapters 2 and 3.</p><a class="open" href="portfolio-update/lessons/week-03-lesson-plan.pdf" target="_blank" rel="noopener">Open lesson plan (PDF) ↗</a></figcaption></figure>
+    <figure class="polaroid" data-kind="lesson"><a class="img plan-img" href="portfolio-update/lessons/week-04-lesson-plan.pdf" target="_blank" rel="noopener"><img src="portfolio-update/lessons/week-04-preview.jpg" alt="First page of my Week 4 lesson plan: Characterization: Internal Traits" width="510" height="660" loading="lazy"></a><figcaption><span class="kind">Lesson plan · Week 4 · Sep 28</span><h3>Characterization: Internal Traits</h3><p>Character motivation and inner traits in Chapter 4.</p><a class="open" href="portfolio-update/lessons/week-04-lesson-plan.pdf" target="_blank" rel="noopener">Open lesson plan (PDF) ↗</a></figcaption></figure>
+    <figure class="polaroid" data-kind="lesson"><a class="img plan-img" href="portfolio-update/lessons/week-05-lesson-plan.pdf" target="_blank" rel="noopener"><img src="portfolio-update/lessons/week-05-preview.jpg" alt="First page of my Week 5 lesson plan: Conflict: Man vs. Man" width="510" height="660" loading="lazy"></a><figcaption><span class="kind">Lesson plan · Week 5 · Oct 5</span><h3>Conflict: Man vs. Man</h3><p>The rivalry between Sun-Sun and Jake in Chapters 5 and 6. <a href="#reflections">Read my reflection</a>.</p><a class="open" href="portfolio-update/lessons/week-05-lesson-plan.pdf" target="_blank" rel="noopener">Open lesson plan (PDF) ↗</a></figcaption></figure>
+    <figure class="polaroid" data-kind="lesson"><a class="img plan-img" href="portfolio-update/lessons/week-06-lesson-plan.pdf" target="_blank" rel="noopener"><img src="portfolio-update/lessons/week-06-preview.jpg" alt="First page of my Week 6 lesson plan: Mid-Term Review" width="510" height="660" loading="lazy"></a><figcaption><span class="kind">Lesson plan · Week 6 · Oct 12</span><h3>Mid-Term Review</h3><p>A comprehensive review of Chapters 1 to 6 before the mid-term test.</p><a class="open" href="portfolio-update/lessons/week-06-lesson-plan.pdf" target="_blank" rel="noopener">Open lesson plan (PDF) ↗</a></figcaption></figure>
+    <figure class="polaroid" data-kind="lesson"><a class="img plan-img" href="portfolio-update/lessons/week-08-lesson-plan.pdf" target="_blank" rel="noopener"><img src="portfolio-update/lessons/week-08-preview.jpg" alt="First page of my Week 8 lesson plan: Poetry: Ballads and Free Verse" width="510" height="660" loading="lazy"></a><figcaption><span class="kind">Lesson plan · Week 8 · Nov 2</span><h3>Poetry: Ballads and Free Verse</h3><p>Clapping the beat of "Linstead Market" and comparing a ballad with free verse. <a href="#reflections">Read my reflection</a>.</p><a class="open" href="portfolio-update/lessons/week-08-lesson-plan.pdf" target="_blank" rel="noopener">Open lesson plan (PDF) ↗</a></figcaption></figure>
+    <figure class="polaroid" data-kind="lesson"><a class="img plan-img" href="portfolio-update/lessons/week-09-lesson-plan.pdf" target="_blank" rel="noopener"><img src="portfolio-update/lessons/week-09-preview.jpg" alt="First page of my Week 9 lesson plan: Imagery and Theme in "My Parents"" width="510" height="660" loading="lazy"></a><figcaption><span class="kind">Lesson plan · Week 9 · Nov 9</span><h3>Imagery and Theme in "My Parents"</h3><p>Sensory imagery, simile, and the theme of social exclusion in Stephen Spender's poem.</p><a class="open" href="portfolio-update/lessons/week-09-lesson-plan.pdf" target="_blank" rel="noopener">Open lesson plan (PDF) ↗</a></figcaption></figure>
+    <figure class="polaroid" data-kind="lesson"><a class="img plan-img" href="portfolio-update/lessons/week-10-lesson-plan.pdf" target="_blank" rel="noopener"><img src="portfolio-update/lessons/week-10-preview.jpg" alt="First page of my Week 10 lesson plan: Plot Structure and the PEE Paragraph" width="510" height="660" loading="lazy"></a><figcaption><span class="kind">Lesson plan · Week 10 · Nov 16</span><h3>Plot Structure and the PEE Paragraph</h3><p>Mapping the whole novel on Freytag's Pyramid and writing a PEE paragraph.</p><a class="open" href="portfolio-update/lessons/week-10-lesson-plan.pdf" target="_blank" rel="noopener">Open lesson plan (PDF) ↗</a></figcaption></figure>
+    <figure class="polaroid" data-kind="lesson"><a class="img plan-img" href="portfolio-update/lessons/week-11-lesson-plan.pdf" target="_blank" rel="noopener"><img src="portfolio-update/lessons/week-11-preview.jpg" alt="First page of my Week 11 lesson plan: Writing a Comparison Essay" width="510" height="660" loading="lazy"></a><figcaption><span class="kind">Lesson plan · Week 11 · Nov 23</span><h3>Writing a Comparison Essay</h3><p>Planning and writing a four-paragraph essay comparing the novel and the poem.</p><a class="open" href="portfolio-update/lessons/week-11-lesson-plan.pdf" target="_blank" rel="noopener">Open lesson plan (PDF) ↗</a></figcaption></figure>
+    <figure class="polaroid" data-kind="lesson"><a class="img plan-img" href="portfolio-update/lessons/week-12-lesson-plan.pdf" target="_blank" rel="noopener"><img src="portfolio-update/lessons/week-12-preview.jpg" alt="First page of my Week 12 lesson plan: Exam Practice" width="510" height="660" loading="lazy"></a><figcaption><span class="kind">Lesson plan · Week 12 · Nov 30</span><h3>Exam Practice</h3><p>Extract questions and a timed comparison essay for the end-of-term exam.</p><a class="open" href="portfolio-update/lessons/week-12-lesson-plan.pdf" target="_blank" rel="noopener">Open lesson plan (PDF) ↗</a></figcaption></figure>
     <figure class="polaroid" data-kind="resource"><div class="img">Worksheet, chart, or game</div><figcaption><span class="kind">Resource</span><h3>e.g. Literary devices chart</h3><p>What you made and how students used it.</p></figcaption></figure>
   </div>
   <p class="privacy">🔒 Student names and faces are hidden to protect their privacy.</p>
