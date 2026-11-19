@@ -164,7 +164,7 @@ main.js .page:not(.is-current) { display: none !important } main.js .page.is-cur
 @media (max-width: 560px) { .entry { grid-template-columns: 1fr; gap: 0; padding-left: 58px } }
 
 /* LMS */
-.lms { display: grid; grid-template-columns: 1fr 1fr; gap: 24px }
+.lms { display: grid; grid-template-columns: 1fr; gap: 24px }
 .tool.wide { grid-column: 1 / -1 }
 .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 0; align-items: start; padding-bottom: 22px }
 .shots .window { margin: 22px 26px 0 }
@@ -189,6 +189,9 @@ main.js .page:not(.is-current) { display: none !important } main.js .page.is-cur
 .coderow { display: flex; flex-wrap: wrap; gap: 10px; align-items: center }
 .coderow code { font: 800 1.5rem/1 ui-monospace, "SF Mono", Menlo, Consolas, monospace; letter-spacing: .12em; background: var(--surface); padding: 12px 16px; border-radius: 12px; user-select: all }
 .coderow .btn { padding: 10px 16px }
+.joins { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; width: 100% }
+.joins > div { display: grid; gap: 10px; justify-items: start }
+@media (max-width: 820px) { .joins { grid-template-columns: 1fr } }
 @media (max-width: 820px) { .lms { grid-template-columns: 1fr } .shots { grid-template-columns: 1fr } .shots .window:nth-child(n) { margin: 16px 18px 0 } .tool.wide .uses ul { columns: 1 } }
 
 /* Podcast */
@@ -479,24 +482,13 @@ footer { padding-block: 32px 48px; border-top: 1px solid var(--line); color: var
       <div class="uses">
         <span class="eyebrow">How I use it</span>
         <ul><li>A Start Here topic so every student knows the rules and how to turn in work</li><li>Each topic follows the same path: read the Notes, take the Quiz, then do the Activity</li><li>Quizzes in Google Forms that grade themselves, so students see their score right away</li><li>Activities where each student gets their own copy of the worksheet to type into</li><li>A rubric on every activity, so students know what Excellent, Good and Still growing look like</li><li>Due dates, so the Upcoming box and Google Calendar remind students what is due</li><li>An icebreaker question where students reply to each other, building a kind class community</li><li>Reusing posts across 7C and 7F, so both classes get the same lessons</li></ul>
-      </div>
-    </article>
-    <article class="tool">
-      <div class="tool-top">
-        <span class="badge gc"><i>GC</i>Google Classroom</span>
-        <h2>My first <em>class</em> online</h2>
-        <p>My first Google Classroom was for Grade 7 English Language. I organise the classwork by topic, such as context clues, word skills, and external text features, so students can easily find notes, study guides, and quizzes for each unit.</p>
-      </div>
-      <div class="window"><div class="bar"><span></span><span></span><span></span></div><img class="full" src="images/gc-stream.png" alt="Google Classroom stream for 7 Grade English Language, with a Grade 7C banner and a posted live quiz on context clues" width="1030" height="574" loading="lazy"></div>
-      <div class="window" style="margin-top:0"><div class="bar"><span></span><span></span><span></span></div><img class="full" src="images/gc-classwork.png" alt="Classwork page organised by topic: a language study guide, a context clues live quiz, word skills, and word skills notes" width="524" height="466" loading="lazy"></div>
-      <div class="uses">
-        <span class="eyebrow">How I use it</span>
-        <ul><li>Organising classwork by topic so students find what they need</li><li>Posting notes and study guides for each unit</li><li>Assigning live quizzes, such as my context clues quiz</li><li>Sharing announcements and reminders with the class</li></ul>
         <div class="join">
-          <span class="eyebrow">Join my class</span>
-          <div class="coderow"><code id="class-code">tlvn44kh</code><button type="button" class="btn line" id="copy-code">Copy code</button></div>
-          <p>Sign in with a Google account, then tap the button below and choose <strong>Join</strong>. You can also go to classroom.google.com, tap <strong>+</strong>, choose <strong>Join class</strong>, and enter the code.</p>
-          <a class="btn dark" href="https://classroom.google.com/c/ODY5NjU1MzA0ODc5?cjc=tlvn44kh" target="_blank" rel="noopener">Join my Google Classroom ↗</a>
+          <span class="eyebrow">Join my classes</span>
+          <div class="joins">
+            <div><strong>7C English Language and Literature</strong><div class="coderow"><code>ucxfksbj</code><button type="button" class="btn line copy-code">Copy code</button></div><a class="btn dark" href="https://classroom.google.com/c/ODE2ODA1MDk1MTMw?cjc=ucxfksbj" target="_blank" rel="noopener">Join 7C ↗</a></div>
+            <div><strong>7F English Language and Literature</strong><div class="coderow"><code>udfaheuc</code><button type="button" class="btn line copy-code">Copy code</button></div><a class="btn dark" href="https://classroom.google.com/c/ODE2NTQzMjY4MTMx?cjc=udfaheuc" target="_blank" rel="noopener">Join 7F ↗</a></div>
+          </div>
+          <p>Sign in with a Google account, then tap a Join button and choose <strong>Join</strong>. You can also go to classroom.google.com, tap <strong>+</strong>, choose <strong>Join class</strong>, and enter the code.</p>
         </div>
       </div>
     </article>
@@ -506,7 +498,7 @@ footer { padding-block: 32px 48px; border-top: 1px solid var(--line); color: var
         <h2>Quizzes that <em>engage</em></h2>
         <p>I create my own quizzes on Wayground, formerly Quizizz, to check understanding and make revision fun. My quizzes include Literary Genres and <em>A Cow Called Boy</em>, English Grammar, and Jamaican English and Vocabulary.</p>
       </div>
-      <div class="window"><div class="bar"><span></span><span></span><span></span></div><img class="full" src="images/quizizz-library.png" alt="Wayground library of quizzes I created, including Literary Genres and A Cow Called Boy, English Grammar Quiz, and Jamaican English and Vocabulary Quiz" width="1000" height="544" loading="lazy"></div>
+      <div class="window" style="max-width:760px"><div class="bar"><span></span><span></span><span></span></div><img class="full" src="images/quizizz-library.png" alt="Wayground library of quizzes I created, including Literary Genres and A Cow Called Boy, English Grammar Quiz, and Jamaican English and Vocabulary Quiz" width="1000" height="544" loading="lazy"></div>
       <div class="uses">
         <span class="eyebrow">How I use it</span>
         <ul><li>Quick checks on grammar, vocabulary, and literary devices</li><li>Comprehension quizzes after a reading</li><li>Revision games before tests</li><li>Using the results report to plan reteaching</li></ul>
@@ -614,7 +606,8 @@ footer { padding-block: 32px 48px; border-top: 1px solid var(--line); color: var
   <div style="display:grid;gap:14px">
     <span class="eyebrow">Links</span>
     <div class="linklist">
-      <a class="linkrow" href="https://classroom.google.com/c/ODY5NjU1MzA0ODc5?cjc=tlvn44kh" target="_blank" rel="noopener"><span class="ico">🎓</span><div><strong>My Google Classroom</strong><small>Class code: tlvn44kh</small></div><span aria-hidden="true">↗</span></a>
+      <a class="linkrow" href="https://classroom.google.com/c/ODE2ODA1MDk1MTMw?cjc=ucxfksbj" target="_blank" rel="noopener"><span class="ico">🎓</span><div><strong>My Google Classroom: 7C</strong><small>Class code: ucxfksbj</small></div><span aria-hidden="true">↗</span></a>
+      <a class="linkrow" href="https://classroom.google.com/c/ODE2NTQzMjY4MTMx?cjc=udfaheuc" target="_blank" rel="noopener"><span class="ico">🎓</span><div><strong>My Google Classroom: 7F</strong><small>Class code: udfaheuc</small></div><span aria-hidden="true">↗</span></a>
       <a class="linkrow" href="https://ash515-create.github.io/-Patterson-s-Portfolio/" target="_blank" rel="noopener"><span class="ico">🌐</span><div><strong>My professional website</strong><small>ash515-create.github.io</small></div><span aria-hidden="true">↗</span></a>
     </div>
   </div>
@@ -699,13 +692,14 @@ footer { padding-block: 32px 48px; border-top: 1px solid var(--line); color: var
     });
   });
 
-  // Copy class code
-  var copyBtn = document.getElementById('copy-code');
-  if (copyBtn) copyBtn.addEventListener('click', function () {
-    var code = document.getElementById('class-code');
-    function done() { copyBtn.textContent = 'Copied'; setTimeout(function () { copyBtn.textContent = 'Copy code'; }, 2000); }
-    function fallback() { var r = document.createRange(); r.selectNodeContents(code); var s = getSelection(); s.removeAllRanges(); s.addRange(r); copyBtn.textContent = 'Code selected'; }
-    try { navigator.clipboard.writeText(code.textContent).then(done, fallback); } catch (e) { fallback(); }
+  // Copy class codes
+  document.querySelectorAll('.copy-code').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var code = btn.parentNode.querySelector('code');
+      function done() { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy code'; }, 2000); }
+      function fallback() { var r = document.createRange(); r.selectNodeContents(code); var sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); btn.textContent = 'Code selected'; }
+      try { navigator.clipboard.writeText(code.textContent).then(done, fallback); } catch (e) { fallback(); }
+    });
   });
 
   // Podcast waveform decoration
