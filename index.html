@@ -165,6 +165,11 @@ main.js .page:not(.is-current) { display: none !important } main.js .page.is-cur
 
 /* LMS */
 .lms { display: grid; grid-template-columns: 1fr 1fr; gap: 24px }
+.tool.wide { grid-column: 1 / -1 }
+.shots { display: grid; grid-template-columns: 1fr 1fr; gap: 0; align-items: start; padding-bottom: 22px }
+.shots .window { margin: 22px 26px 0 }
+.shots .window:nth-child(odd) { margin-right: 11px } .shots .window:nth-child(even) { margin-left: 11px }
+.tool.wide .uses ul { columns: 2; column-gap: 32px }
 .tool { background: var(--surface); border: 1px solid var(--line); border-radius: 30px; overflow: hidden; display: grid; align-content: start; min-width: 0 }
 .tool-top { padding: 26px 26px 0; display: grid; gap: 10px }
 .badge { display: inline-flex; gap: 8px; align-items: center; font-weight: 700; font-size: .85rem }
@@ -184,7 +189,7 @@ main.js .page:not(.is-current) { display: none !important } main.js .page.is-cur
 .coderow { display: flex; flex-wrap: wrap; gap: 10px; align-items: center }
 .coderow code { font: 800 1.5rem/1 ui-monospace, "SF Mono", Menlo, Consolas, monospace; letter-spacing: .12em; background: var(--surface); padding: 12px 16px; border-radius: 12px; user-select: all }
 .coderow .btn { padding: 10px 16px }
-@media (max-width: 820px) { .lms { grid-template-columns: 1fr } }
+@media (max-width: 820px) { .lms { grid-template-columns: 1fr } .shots { grid-template-columns: 1fr } .shots .window:nth-child(n) { margin: 16px 18px 0 } .tool.wide .uses ul { columns: 1 } }
 
 /* Podcast */
 .pod { background: #16142b; color: #f1effa; border-radius: 36px; padding: clamp(24px, 5vw, 52px); display: grid; grid-template-columns: 260px 1fr; gap: 40px; align-items: center; position: relative; overflow: hidden }
@@ -414,12 +419,21 @@ footer { padding-block: 32px 48px; border-top: 1px solid var(--line); color: var
   <div class="page-head">
     <span class="eyebrow">Reflections</span>
     <h1>How I'm <em>growing</em></h1>
-    <p>Looking back on my practice: what happened, what I learned, and what I'll do differently.</p>
+    <p>Looking back on this course and on my practice: what happened, what I learned, and what I'll do differently.</p>
   </div>
   <div class="model" aria-label="Reflection model">
     <span>1 · What happened</span><span>2 · How I felt</span><span>3 · What went well and what didn't</span><span>4 · What I learned</span><span>5 · What I'll do next time</span>
   </div>
   <div class="timeline">
+    <article class="entry"><span class="when">Course reflection<br>Technology Integration</span><div>
+      <h3>From using technology to integrating it</h3>
+      <p><strong>What I learned.</strong> I have truly enjoyed this course, and it has changed the way I think about technology in my classroom. Before, I saw technology mainly as something to use: a slideshow to present notes, or a video to play. Now I understand the difference between using technology and integrating it. Integration means technology is part of how students learn. It makes lessons interactive, gives students something to do, and keeps them engaged instead of watching.</p>
+      <p><strong>Why it matters.</strong> I think very highly of technology integration. We are living in a digital age, and my students will use digital tools in their studies, their jobs, and their daily lives. They should learn in the same way they will live and work. Technology also helps me differentiate. With audio, images, videos, games, and interactive slides, I can reach students who learn in different ways, so every student has a way into the lesson.</p>
+      <p><strong>Putting it into practice.</strong> Throughout the course I turned what I learned into real work for my students. I organised my classes in Google Classroom, created quizzes on Wayground and Kahoot, built an interactive context clues presentation where students tap to check their answers, recorded a podcast on subject–verb agreement, and built this e-portfolio as a website. My students also created with technology, designing posters in Canva and recording their own work.</p>
+      <p><strong>Looking at every side.</strong> I also learned that good integration means judging a tool carefully before using it. When I evaluated Google Classroom with the SECTIONS framework, I looked beyond whether it was useful and considered cost, ease of use, organisational support, and security and privacy. That evaluation reminded me that not all of my students have devices or reliable internet, so I plan for shared devices, group work, and printed backups. My work on distributed learning and the ASSURE model also showed me how to plan lessons where technology supports clear objectives.</p>
+      <p><strong>AI in the classroom.</strong> Artificial intelligence is now part of this digital world, and I believe teachers should guide students to use it responsibly rather than ignore it. AI can help teachers create practice questions and support different learners. I used AI tools myself to help build this website. However, students must still do their own thinking. To check whether a student relied on AI, I would compare the work with how the student writes in class, ask them to explain their ideas aloud, and have them draft important pieces in class. I would not rely on AI detectors alone, because they are not always accurate.</p>
+      <p><strong>Moving forward.</strong> This course has made me a more confident and thoughtful teacher. I will keep learning new tools, keep making my lessons interactive, and keep asking whether each tool truly helps my students learn.</p>
+    </div></article>
     <article class="entry"><span class="when">Week 8 · Grade 8³<br>Nov 2, 2026</span><div>
       <h3>Bringing poetry to life with "Linstead Market"</h3>
       <p><strong>What happened.</strong> I introduced my Grade 8³ class to poetry, focusing on the structure of ballads and free verse. We began by clapping the beat of the Jamaican folk song "Linstead Market", then compared it with a passage from <em>My Father, Sun-Sun Johnson</em> to hear the difference between a regular beat and natural speech. Students then worked in pairs to mark the stanzas and rhymes in "The Wreck of the Hesperus" and "Fog", completed a comparison matrix, checked another pair's work, and finished with an exit ticket.</p>
@@ -449,11 +463,29 @@ footer { padding-block: 32px 48px; border-top: 1px solid var(--line); color: var
     <p>How I use Google Classroom and Quizizz to share work, give feedback, and check what my students understand.</p>
   </div>
   <div class="lms">
+    <article class="tool wide">
+      <div class="tool-top">
+        <span class="badge gc"><i>GC</i>Google Classroom</span>
+        <h2>Grade 7C &amp; 7F <em>this year</em></h2>
+        <p>This school year I teach the same English Language and Literature course to two Grade 7 classes, 7C and 7F, so each class has its own Google Classroom with the same materials. I designed the classes to be welcoming and easy to follow: a chalkboard banner I made, a ⭐ Start Here topic with class rules, a how-to video and an icebreaker, and topics marked with icons for Literary Genre, Prose, Characterisation, Plot and Conflict, and Poetry.</p>
+      </div>
+      <div class="shots">
+      <div class="window"><div class="bar"><span></span><span></span><span></span></div><img class="full" src="images/gc-7c-stream.jpg" alt="Stream for 7C English Language and Literature, with a chalkboard banner reading Grade 7C and a welcome announcement from Miss Patterson" width="1066" height="569" loading="lazy"></div>
+      <div class="window"><div class="bar"><span></span><span></span><span></span></div><img class="full" src="images/gc-7c-classwork.jpg" alt="Classwork page with a Start Here topic containing an icebreaker question, a How to Turn In Your Work video and Class Rules and Expectations" width="1066" height="496" loading="lazy"></div>
+      <div class="window"><div class="bar"><span></span><span></span><span></span></div><img class="full" src="images/gc-7c-due.jpg" alt="Literary Genre and Prose topics, each with notes, a quiz and an activity, with due dates on the quizzes and activities" width="1066" height="508" loading="lazy"></div>
+      <div class="window"><div class="bar"><span></span><span></span><span></span></div><img class="full" src="images/gc-rubric.jpg" alt="Rubric for the Poem Detective activity with three levels, Excellent, Good and Still growing, for Understanding of the topic and Language and spelling" width="680" height="557" loading="lazy"></div>
+      <div class="window"><div class="bar"><span></span><span></span><span></span></div><img class="full" src="images/gc-7f-stream.jpg" alt="Stream for 7F English Language and Literature, with a matching Grade 7F chalkboard banner and welcome announcement" width="1066" height="569" loading="lazy"></div>
+      </div>
+      <div class="uses">
+        <span class="eyebrow">How I use it</span>
+        <ul><li>A Start Here topic so every student knows the rules and how to turn in work</li><li>Each topic follows the same path: read the Notes, take the Quiz, then do the Activity</li><li>Quizzes in Google Forms that grade themselves, so students see their score right away</li><li>Activities where each student gets their own copy of the worksheet to type into</li><li>A rubric on every activity, so students know what Excellent, Good and Still growing look like</li><li>Due dates, so the Upcoming box and Google Calendar remind students what is due</li><li>An icebreaker question where students reply to each other, building a kind class community</li><li>Reusing posts across 7C and 7F, so both classes get the same lessons</li></ul>
+      </div>
+    </article>
     <article class="tool">
       <div class="tool-top">
         <span class="badge gc"><i>GC</i>Google Classroom</span>
-        <h2>My <em>class</em> online</h2>
-        <p>My Grade 7C English Language class has its own Google Classroom. I organise the classwork by topic, such as context clues, word skills, and external text features, so students can easily find notes, study guides, and quizzes for each unit.</p>
+        <h2>My first <em>class</em> online</h2>
+        <p>My first Google Classroom was for Grade 7 English Language. I organise the classwork by topic, such as context clues, word skills, and external text features, so students can easily find notes, study guides, and quizzes for each unit.</p>
       </div>
       <div class="window"><div class="bar"><span></span><span></span><span></span></div><img class="full" src="images/gc-stream.png" alt="Google Classroom stream for 7 Grade English Language, with a Grade 7C banner and a posted live quiz on context clues" width="1030" height="574" loading="lazy"></div>
       <div class="window" style="margin-top:0"><div class="bar"><span></span><span></span><span></span></div><img class="full" src="images/gc-classwork.png" alt="Classwork page organised by topic: a language study guide, a context clues live quiz, word skills, and word skills notes" width="524" height="466" loading="lazy"></div>
@@ -478,6 +510,12 @@ footer { padding-block: 32px 48px; border-top: 1px solid var(--line); color: var
       <div class="uses">
         <span class="eyebrow">How I use it</span>
         <ul><li>Quick checks on grammar, vocabulary, and literary devices</li><li>Comprehension quizzes after a reading</li><li>Revision games before tests</li><li>Using the results report to plan reteaching</li></ul>
+        <div class="join" style="background:var(--lilac)">
+          <span class="eyebrow">Featured quiz</span>
+          <h3>Subject–Verb Agreement Quiz</h3>
+          <p>15 questions for Grade 7, with an explanation for every answer. It follows Episode 1 of my podcast and my Subject–Verb Agreement online activity.</p>
+          <a class="btn dark" href="https://wayground.com/admin/assessment/6afe3febeeb8a50b23326630?source=lesson_share" target="_blank" rel="noopener">View my quiz on Wayground ↗</a>
+        </div>
       </div>
     </article>
   </div>
@@ -533,7 +571,13 @@ footer { padding-block: 32px 48px; border-top: 1px solid var(--line); color: var
     <button type="button" id="f-resource" data-filter="resource" aria-pressed="false">Resources</button>
   </div>
   <div class="gallery" id="gallery">
-    <figure class="polaroid" data-kind="student"><div class="img">Photo of student work</div><figcaption><span class="kind">Student work</span><h3>e.g. Descriptive writing</h3><p>What students wrote, and what it shows about their learning.</p></figcaption></figure>
+    <figure class="polaroid" data-kind="student"><a class="img plan-img" href="student-work/drama-stage-poster.jpg" target="_blank" rel="noopener"><img src="student-work/drama-stage-poster.jpg" alt="Student work: Drama: Where Stories Come to Life" loading="lazy" style="object-position:center"></a><figcaption><span class="kind">Literary genres · Drama · Grade 7</span><h3>Drama: Where Stories Come to Life</h3><p>In our literary genres unit, students chose a genre and designed a poster to promote it. This stage-themed poster explains dialogue, stage directions, and acts and scenes, with the student's own examples.</p><a class="open" href="student-work/drama-stage-poster.jpg" target="_blank" rel="noopener">View full photo ↗</a></figcaption></figure>
+    <figure class="polaroid" data-kind="student"><a class="img plan-img" href="student-work/maroon-village-model.jpg" target="_blank" rel="noopener"><img src="student-work/maroon-village-model.jpg" alt="Student work: The Maroon Village" loading="lazy" style="object-position:center"></a><figcaption><span class="kind">Setting model · <em>The Young Warriors</em></span><h3>The Maroon Village</h3><p>Students built the settings of <em>The Young Warriors</em> by V. S. Reid. This model of the Maroon village on the mountain top includes labelled huts, the council house, the fire pit, the farm, and the villagers.</p><a class="open" href="student-work/maroon-village-model.jpg" target="_blank" rel="noopener">View full photo ↗</a></figcaption></figure>
+    <figure class="polaroid" data-kind="student"><a class="img plan-img" href="student-work/drama-genre-poster.jpg" target="_blank" rel="noopener"><img src="student-work/drama-genre-poster.jpg" alt="Student work: Drama Features Poster" loading="lazy" style="object-position:center"></a><figcaption><span class="kind">Literary genres · Drama</span><h3>Drama Features Poster</h3><p>A hand-drawn genre poster defining drama, explaining its features with examples, and giving reasons to choose the genre.</p><a class="open" href="student-work/drama-genre-poster.jpg" target="_blank" rel="noopener">View full photo ↗</a></figcaption></figure>
+    <figure class="polaroid" data-kind="student"><a class="img plan-img" href="student-work/poetry-genre-poster.jpg" target="_blank" rel="noopener"><img src="student-work/poetry-genre-poster.jpg" alt="Student work: Poetry Is the Voice of the Heart" loading="lazy" style="object-position:center"></a><figcaption><span class="kind">Literary genres · Poetry</span><h3>Poetry Is the Voice of the Heart</h3><p>A genre poster with a definition, three features of poetry (rhyme, rhythm, stanzas), and the student's own rhyming poem, haiku, and acrostic.</p><a class="open" href="student-work/poetry-genre-poster.jpg" target="_blank" rel="noopener">View full photo ↗</a></figcaption></figure>
+    <figure class="polaroid" data-kind="student"><a class="img plan-img" href="student-work/drama-curtain-poster.jpg" target="_blank" rel="noopener"><img src="student-work/drama-curtain-poster.jpg" alt="Student work: What Is Drama?" loading="lazy" style="object-position:center"></a><figcaption><span class="kind">Literary genres · Drama</span><h3>What Is Drama?</h3><p>A creative poster with fabric stage curtains that open to reveal what drama is and the three major literary genres.</p><a class="open" href="student-work/drama-curtain-poster.jpg" target="_blank" rel="noopener">View full photo ↗</a></figcaption></figure>
+    <figure class="polaroid" data-kind="student"><a class="img plan-img" href="student-work/campsite-model.jpg" target="_blank" rel="noopener"><img src="student-work/campsite-model.jpg" alt="Student work: Campsite by the River" loading="lazy" style="object-position:center"></a><figcaption><span class="kind">Setting model · <em>The Young Warriors</em></span><h3>Campsite by the River</h3><p>Another setting from the novel, built by hand with a labelled river, fireside, and tent.</p><a class="open" href="student-work/campsite-model.jpg" target="_blank" rel="noopener">View full photo ↗</a></figcaption></figure>
+    <figure class="polaroid" data-kind="student"><a class="img plan-img" href="student-work/coral-reefs-page.jpg" target="_blank" rel="noopener"><img src="student-work/coral-reefs-page.jpg" alt="Student work: The Amazing World of Coral Reefs" loading="lazy" style="object-position:center"></a><figcaption><span class="kind">External text features · Student-made book</span><h3>The Amazing World of Coral Reefs</h3><p>After studying external text features, students created their own information books. This page uses a heading, a photograph, and a caption to present facts about coral reefs.</p><a class="open" href="student-work/coral-reefs-page.jpg" target="_blank" rel="noopener">View full photo ↗</a></figcaption></figure>
     <figure class="polaroid" data-kind="resource"><a class="img plan-img" href="resources/subject-verb-agreement-activity.pdf" target="_blank" rel="noopener"><img src="resources/subject-verb-agreement-activity-preview.jpg" alt="First page of my handout: Subject–Verb Agreement Online Activity" width="510" height="660" loading="lazy"></a><figcaption><span class="kind">Resource · Grade 7 · Google Classroom</span><h3>Subject–Verb Agreement Online Activity</h3><p>A 15-mark activity students complete and turn in on Google Classroom. It matches Episode 1 of my podcast. <a href="#podcast">Listen to the episode</a>.</p><a class="open" href="resources/subject-verb-agreement-activity.pdf" target="_blank" rel="noopener">Open handout (PDF) ↗</a></figcaption></figure>
     <figure class="polaroid" data-kind="resource"><a class="img plan-img" href="resources/word-skills-activity.pdf" target="_blank" rel="noopener"><img src="resources/word-skills-activity-preview.jpg" alt="First page of my handout: Word Skills Online Activity" width="510" height="660" loading="lazy"></a><figcaption><span class="kind">Resource · Grade 7 · Google Classroom</span><h3>Word Skills Online Activity</h3><p>An 18-mark activity on context clues, synonyms, antonyms, prefixes, and suffixes, completed online.</p><a class="open" href="resources/word-skills-activity.pdf" target="_blank" rel="noopener">Open handout (PDF) ↗</a></figcaption></figure>
     <figure class="polaroid" data-kind="resource"><a class="img plan-img" href="resources/plot-activity-group-homework.pdf" target="_blank" rel="noopener"><img src="resources/plot-activity-group-homework-preview.jpg" alt="First page of my handout: Plot Activity: Group Homework" width="510" height="660" loading="lazy"></a><figcaption><span class="kind">Resource · Grade 8 · Group work</span><h3>Plot Activity: Group Homework</h3><p>A group task where students map a story's plot together, with every member taking part.</p><a class="open" href="resources/plot-activity-group-homework.pdf" target="_blank" rel="noopener">Open handout (PDF) ↗</a></figcaption></figure>
